@@ -1,0 +1,251 @@
+  #pkr-app, #pkr-app * { box-sizing: border-box; }
+  #pkr-app {
+    max-width: 600px;
+    margin: 24px auto;
+    background: #0D0D11;
+    color: #EDEDED;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    border-radius: 20px;
+    padding: 36px 24px;
+    line-height: 1.6;
+    border: 1px solid #1F1F26;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  }
+  
+  /* SEO Semantic Typo */
+  #pkr-app h1.pkr-seo-title { font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 0; margin-bottom: 8px; line-height: 1.3; }
+  #pkr-app h2.pkr-seo-subtitle { font-size: 15px; font-weight: 500; color: #B3B3B3; margin-top: 0; margin-bottom: 20px; line-height: 1.5; }
+  #pkr-app h3 { font-size: 18px; font-weight: 600; color: #FFFFFF; margin-top: 0; margin-bottom: 20px; line-height: 1.4; }
+  #pkr-app p { color: #A6A6A6; font-size: 14px; margin-bottom: 20px; }
+  #pkr-app a { color: #FF2D7A; text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  #pkr-app a:hover { color: #FF66A3; text-decoration: underline; }
+  
+  .pkr-gradient-bar {
+    height: 4px;
+    width: 60px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #8E0E3A, #FF2D7A);
+    margin-bottom: 24px;
+  }
+  
+  #pkr-screen {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
+  #pkr-screen.pkr-fade { opacity: 0; }
+
+  /* Premium Metadata Badge Row */
+  .pkr-meta-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .pkr-meta-badge {
+    background: #14141A;
+    border: 1px solid #23232A;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .pkr-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #14141A;
+    border: 1px solid #23232A;
+    color: #E6E6E6;
+    padding: 16px 20px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pkr-btn:hover {
+    border-color: #FF2D7A;
+    background: #1A1A22;
+    transform: translateY(-1px);
+  }
+
+  /* Premium Glowing CTA Button */
+  .pkr-primary-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #8E0E3A, #C2185B, #FF2D7A);
+    color: #FFFFFF;
+    font-weight: 700;
+    border: none;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 45, 122, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .pkr-primary-btn:hover {
+    box-shadow: 0 6px 25px rgba(255, 45, 122, 0.5);
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+  
+  .pkr-ghost-btn {
+    display: inline-block;
+    background: transparent;
+    color: #B3B3B3;
+    border: 1px solid #2C2C35;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pkr-ghost-btn:hover { color: #FFFFFF; border-color: #555566; }
+
+  /* Premium Multi-Share Box Custom Layout */
+  .pkr-share-box {
+    background: #14141A;
+    border: 1px solid #1F1F26;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+    text-align: center;
+  }
+  .pkr-share-title { font-size: 12px; font-weight: 700; color: #FFFFFF; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .pkr-share-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 460px; margin: 0 auto; }
+  
+  .pkr-share-btn-full { grid-column: span 2; }
+  
+  .pkr-share-btn {
+    background: #1F1F26;
+    color: #EDEDED;
+    border: 1px solid #2C2C35;
+    padding: 12px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .pkr-share-btn:hover { background: #FF2D7A; color: #FFF; border-color: #FF2D7A; }
+  .pkr-share-btn-wa:hover { background: #25D366; border-color: #25D366; color: #FFF; }
+
+  .pkr-progress-container { margin-bottom: 24px; }
+  .pkr-progress-track {
+    width: 100%;
+    height: 6px;
+    background: #1F1F26;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .pkr-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8E0E3A, #FF2D7A);
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .pkr-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #FF66A3;
+    background: rgba(255, 45, 122, 0.08);
+    border: 1px solid rgba(255, 45, 122, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  
+  .pkr-context-label { font-size: 12px; color: #808099; font-weight: 500; margin-bottom: 12px; }
+
+  .pkr-card {
+    background: #14141A;
+    border-left: 4px solid #FF2D7A;
+    padding: 20px;
+    border-radius: 0 14px 14px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #1F1F26;
+    border-right: 1px solid #1F1F26;
+    border-bottom: 1px solid #1F1F26;
+  }
+  .pkr-card h4 { color: #FF2D7A; font-size: 16px; font-weight: 600; margin: 0 0 8px 0; }
+  .pkr-card p { margin-bottom: 0; font-size: 14px; color: #CCCCCC; }
+  
+  .pkr-divider { border: none; border-top: 1px solid #1F1F26; margin: 24px 0; }
+  .pkr-small { font-size: 13.5px; color: #808099; line-height: 1.5; }
+  
+  .pkr-reflect {
+    background: #111116;
+    border: 1px dashed #3D1C2A;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #D1D1D6;
+  }
+  
+  .pkr-loader-container { text-align: center; padding: 40px 20px; }
+  .pkr-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #1F1F26;
+    border-top: 3px solid #FF2D7A;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    animation: pkr-spin 0.8s linear infinite;
+  }
+  @keyframes pkr-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  #pkr-loader-text { font-size: 15px; font-weight: 500; color: #FF66A3; }
+
+  .pkr-footer-atribusi {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 11px;
+    color: #4A4A5A;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Optimal Mobile Responsiveness */
+  @media screen and (max-width: 480px) {
+    #pkr-app { padding: 28px 16px; margin: 12px auto; border-radius: 16px; }
+    #pkr-app h1.pkr-seo-title { font-size: 20px; }
+    #pkr-app h2.pkr-seo-subtitle { font-size: 13.5px; }
+    .pkr-btn { padding: 14px 16px; font-size: 13.5px; border-radius: 12px; }
+    .pkr-share-grid { grid-template-columns: 1fr; }
+    .pkr-share-btn-full, .pkr-share-btn { grid-column: span 1; }
+  }
+
+  @media print {
+    body * { visibility: hidden; background: #FFFFFF !important; color: #000000 !important; }
+    #pkr-app, #pkr-app * { visibility: visible; }
+    #pkr-app { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; border: none; box-shadow: none; padding: 0; background: #FFFFFF !important; color: #000000 !important; }
+    .pkr-card { background: #F5F5F7 !important; border-left: 4px solid #000000 !important; border-top: 1px solid #DDD !important; border-right: 1px solid #DDD !important; border-bottom: 1px solid #DDD !important; }
+    .pkr-card h4 { color: #000000 !important; }
+    .pkr-card p, #pkr-app p, .pkr-small, .pkr-reflect { color: #111111 !important; }
+    .pkr-reflect { border: 1px dashed #666 !important; background: #FFF !important; }
+    .pkr-no-print { display: none !important; }
+    .pkr-gradient-bar { background: #000000 !important; width: 100px; }
+    .pkr-tag { background: #EEE !important; border: 1px solid #999 !important; color: #000 !important; }
+  }
