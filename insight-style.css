@@ -1,0 +1,162 @@
+#pin-app, #pin-app * { box-sizing: border-box; }
+
+#pin-app {
+  max-width: 600px;
+  margin: 24px auto;
+  background: #0D0D11;
+  color: #EDEDED;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  border-radius: 20px;
+  padding: 32px 24px;
+  line-height: 1.6;
+  border: 1px solid #1F1F26;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+#pin-app .pin-seo-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin: 0 0 14px 0;
+}
+
+#pin-app .pin-seo-desc {
+  font-size: 13px;
+  color: #8A8A8E;
+  margin: -18px 0 24px 0;
+}
+
+#pin-app .pin-tag {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #ED93B1;
+  border: 1px solid #4a2233;
+  padding: 4px 12px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+#pin-app .pin-pillar-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #8E0E3A, #C2185B, #FF2D7A);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+#pin-app .pin-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.5;
+  margin: 0 0 28px 0;
+}
+
+#pin-app .pin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+#pin-app .pin-primary-btn {
+  background: linear-gradient(90deg, #8E0E3A, #C2185B, #FF2D7A);
+  color: #FFFFFF;
+  font-weight: 600;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#pin-app .pin-ghost-btn {
+  background: transparent;
+  color: #EDEDED;
+  border: 1px solid #3a3a3e;
+  padding: 13px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#pin-app .pin-share-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #8A8A8E;
+  margin-bottom: 10px;
+}
+
+#pin-app .pin-share-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#pin-app .pin-share-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #14141A;
+  border: 1px solid #23232A;
+  color: #E6E6E6;
+  padding: 13px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+#pin-app .pin-share-btn:hover {
+  border-color: #FF2D7A;
+  color: #FF2D7A;
+  background: #1A1A22;
+}
+
+#pin-app .pin-share-wa:hover {
+  border-color: #25D366;
+  color: #25D366;
+}
+
+#pin-app .pin-small {
+  font-size: 13px;
+  color: #8A8A8E;
+  margin-bottom: 16px;
+}
+
+#pin-app .pin-footer {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #4a4a4e;
+  border-top: 1px solid #1F1F26;
+  padding-top: 16px;
+}
+
+@media (min-width: 480px) {
+  #pin-app .pin-share-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #pin-app .pin-share-row .pin-share-btn {
+    width: auto;
+    flex: 1 1 auto;
+  }
+  #pin-app .pin-share-full {
+    flex-basis: 100%;
+  }
+}
