@@ -1,0 +1,114 @@
+/* ===== TES TIPE PEOPLE PLEASER — Psikorealis ===== */
+#ppl-app, #ppl-app *{box-sizing:border-box}
+#ppl-app{--ppl-bg:#0B0B0D;--ppl-fg:#EDEDED;--ppl-fg-dim:#9A9A9F;--ppl-c1:#8E0E3A;--ppl-c2:#C2185B;--ppl-c3:#FF2D7A;--ppl-line:rgba(255,255,255,0.08);--ppl-card:#131316;font-family:'Montserrat',sans-serif;background:var(--ppl-bg);color:var(--ppl-fg);border-radius:18px;overflow:hidden;max-width:560px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.45);position:relative}
+#ppl-app .ppl-grad{background:linear-gradient(120deg,var(--ppl-c1),var(--ppl-c2) 55%,var(--ppl-c3));}
+#ppl-app .ppl-screen{display:none;padding:32px 26px 28px}
+#ppl-app .ppl-screen.ppl-active{display:block;animation:pplFade .5s ease}
+@keyframes pplFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+#ppl-app .ppl-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ppl-fg-dim);font-weight:600;margin-bottom:10px}
+#ppl-app h1.ppl-title{font-size:26px;line-height:1.25;font-weight:800;margin:0 0 12px}
+#ppl-app p.ppl-desc{font-size:14.5px;line-height:1.65;color:var(--ppl-fg-dim);margin:0 0 22px}
+#ppl-app .ppl-meta-row{display:flex;gap:18px;margin-bottom:24px;flex-wrap:wrap}
+#ppl-app .ppl-meta{font-size:12px;color:var(--ppl-fg-dim);display:flex;align-items:center;gap:7px}
+#ppl-app .ppl-meta svg{width:15px;height:15px;flex-shrink:0;opacity:.85}
+#ppl-app .ppl-meta b{color:var(--ppl-fg);font-weight:700}
+
+/* ---- Ambient background ---- */
+#ppl-app{isolation:isolate}
+#ppl-app::before,#ppl-app::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.22;z-index:0;pointer-events:none;animation:pplDrift 9s ease-in-out infinite alternate}
+#ppl-app::before{width:220px;height:220px;background:#FF2D7A;top:-70px;right:-60px}
+#ppl-app::after{width:180px;height:180px;background:#8E0E3A;bottom:10%;left:-70px;animation-delay:-4s}
+@keyframes pplDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(-14px,16px) scale(1.12)}}
+#ppl-app .ppl-screen{position:relative;z-index:1}
+
+/* ---- Hero constellation visual ---- */
+#ppl-app .ppl-hero-visual{width:100%;max-width:230px;margin:2px auto 18px;display:block}
+#ppl-app .ppl-node{transform-origin:center;animation:pplNodePulse 2.6s ease-in-out infinite}
+#ppl-app .ppl-node-1{animation-delay:0s}
+#ppl-app .ppl-node-2{animation-delay:.4s}
+#ppl-app .ppl-node-3{animation-delay:.8s}
+#ppl-app .ppl-node-4{animation-delay:1.2s}
+@keyframes pplNodePulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.28);opacity:1}}
+#ppl-app .ppl-node-center{animation:pplCenterGlow 2.6s ease-in-out infinite}
+@keyframes pplCenterGlow{0%,100%{opacity:.9}50%{opacity:1}}
+#ppl-app .ppl-hero-line{stroke-dasharray:4 4;animation:pplLineFlow 3s linear infinite}
+@keyframes pplLineFlow{to{stroke-dashoffset:-16}}
+
+/* ---- Type preview chips ---- */
+#ppl-app .ppl-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+#ppl-app .ppl-chip{font-size:11.5px;font-weight:700;color:#e8c9d3;background:rgba(255,45,122,0.09);border:1px solid rgba(255,45,122,0.28);padding:7px 12px;border-radius:99px;opacity:0;animation:pplChipIn .5s ease forwards}
+#ppl-app .ppl-chip-1{animation-delay:.15s}
+#ppl-app .ppl-chip-2{animation-delay:.28s}
+#ppl-app .ppl-chip-3{animation-delay:.41s}
+#ppl-app .ppl-chip-4{animation-delay:.54s}
+@keyframes pplChipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- Entrance stagger for intro blocks ---- */
+#ppl-app .ppl-in{opacity:0;animation:pplBlockIn .55s ease forwards}
+#ppl-app .ppl-in-1{animation-delay:.05s}
+#ppl-app .ppl-in-2{animation-delay:.15s}
+#ppl-app .ppl-in-3{animation-delay:.25s}
+#ppl-app .ppl-in-4{animation-delay:.5s}
+#ppl-app .ppl-in-5{animation-delay:.62s}
+#ppl-app .ppl-in-6{animation-delay:.74s}
+@keyframes pplBlockIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- Button shine + credibility caption ---- */
+#ppl-app button.ppl-btn.ppl-primary{position:relative;overflow:hidden}
+#ppl-app button.ppl-btn.ppl-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);animation:pplShine 2.8s ease-in-out infinite}
+@keyframes pplShine{0%{left:-60%}55%{left:120%}100%{left:120%}}
+#ppl-app .ppl-cred{font-size:11px;color:var(--ppl-fg-dim);text-align:center;margin-top:12px;line-height:1.5}
+#ppl-app button.ppl-btn{border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;color:#fff;padding:15px 22px;border-radius:12px;width:100%;letter-spacing:.01em;transition:transform .15s ease,box-shadow .15s ease}
+#ppl-app button.ppl-btn:active{transform:scale(.98)}
+#ppl-app button.ppl-btn.ppl-primary{background:linear-gradient(120deg,var(--ppl-c1),var(--ppl-c2) 55%,var(--ppl-c3));box-shadow:0 8px 24px rgba(194,24,91,0.35)}
+#ppl-app button.ppl-btn.ppl-ghost{background:transparent;border:1px solid var(--ppl-line);color:var(--ppl-fg)}
+#ppl-app button.ppl-btn.ppl-ghost:hover{border-color:rgba(255,255,255,0.25)}
+#ppl-app .ppl-progress-wrap{margin-bottom:26px}
+#ppl-app .ppl-progress-track{height:5px;background:var(--ppl-line);border-radius:99px;overflow:hidden}
+#ppl-app .ppl-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--ppl-c1),var(--ppl-c3));transition:width .4s ease;border-radius:99px}
+#ppl-app .ppl-progress-label{font-size:11px;color:var(--ppl-fg-dim);margin-top:8px;display:flex;justify-content:space-between}
+#ppl-app .ppl-q{font-size:19px;line-height:1.5;font-weight:700;margin:0 0 26px;min-height:76px}
+#ppl-app .ppl-options{display:flex;flex-direction:column;gap:10px}
+#ppl-app .ppl-opt{text-align:left;background:var(--ppl-card);border:1px solid var(--ppl-line);color:var(--ppl-fg);padding:14px 16px;border-radius:12px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .15s ease,background .15s ease}
+#ppl-app .ppl-opt:hover{border-color:rgba(255,255,255,0.22);background:#17171b}
+#ppl-app .ppl-opt .ppl-opt-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--ppl-fg-dim);flex-shrink:0}
+#ppl-app .ppl-opt[data-val="4"] .ppl-opt-dot,#ppl-app .ppl-opt[data-val="3"] .ppl-opt-dot{background:var(--ppl-c3);border-color:var(--ppl-c3)}
+#ppl-app .ppl-back{background:none;border:none;color:var(--ppl-fg-dim);font-family:inherit;font-size:12.5px;cursor:pointer;margin-bottom:18px;padding:0;display:inline-flex;align-items:center;gap:5px}
+#ppl-app .ppl-loading{padding:80px 26px;text-align:center}
+#ppl-app .ppl-spinner{width:46px;height:46px;border-radius:50%;border:3px solid var(--ppl-line);border-top-color:var(--ppl-c3);margin:0 auto 22px;animation:pplSpin 0.9s linear infinite}
+@keyframes pplSpin{to{transform:rotate(360deg)}}
+#ppl-app .ppl-loading-text{font-size:14px;color:var(--ppl-fg-dim);min-height:20px}
+#ppl-app .ppl-chapter{padding-top:6px;padding-bottom:30px;border-bottom:1px solid var(--ppl-line)}
+#ppl-app .ppl-chapter:last-of-type{border-bottom:none}
+#ppl-app .ppl-result-badge{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:99px;background:rgba(255,45,122,0.12);color:#FF7CA8;margin-bottom:14px}
+#ppl-app h2.ppl-result-title{font-size:28px;line-height:1.2;font-weight:800;margin:0 0 14px}
+#ppl-app p.ppl-validation{font-size:15px;line-height:1.7;font-style:italic;color:#e8c9d3;border-left:3px solid var(--ppl-c3);padding-left:14px;margin:0}
+#ppl-app h3.ppl-chapter-h{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ppl-fg-dim);font-weight:700;margin:0 0 18px}
+#ppl-app .ppl-bar-group{margin-bottom:16px}
+#ppl-app .ppl-bar-label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px}
+#ppl-app .ppl-bar-label span:last-child{color:var(--ppl-fg-dim);font-weight:700}
+#ppl-app .ppl-bar-track{height:8px;background:var(--ppl-line);border-radius:99px;overflow:hidden}
+#ppl-app .ppl-bar-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--ppl-c1),var(--ppl-c3));transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+#ppl-app .ppl-mechanism{font-size:15px;line-height:1.75;color:var(--ppl-fg)}
+#ppl-app .ppl-implications{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+#ppl-app .ppl-implications li{font-size:14px;line-height:1.6;color:var(--ppl-fg-dim);padding-left:20px;position:relative}
+#ppl-app .ppl-implications li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--ppl-c3)}
+#ppl-app .ppl-quote-card{border-radius:16px;padding:30px 24px;text-align:center;position:relative;overflow:hidden}
+#ppl-app .ppl-quote-card p{position:relative;font-size:19px;line-height:1.5;font-weight:800;margin:0;color:#fff}
+#ppl-app .ppl-stat-box{background:var(--ppl-card);border:1px solid var(--ppl-line);border-radius:14px;padding:18px}
+#ppl-app .ppl-stat-box p{font-size:13.5px;line-height:1.65;color:var(--ppl-fg-dim);margin:0}
+#ppl-app .ppl-stat-box b{color:var(--ppl-fg)}
+#ppl-app .ppl-reflect-box{background:var(--ppl-card);border:1px dashed rgba(255,255,255,0.18);border-radius:14px;padding:20px}
+#ppl-app .ppl-reflect-box p{font-size:15px;line-height:1.6;font-weight:600;margin:0;color:var(--ppl-fg)}
+#ppl-app .ppl-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#ppl-app .ppl-share-btn{width:42px;height:42px;border-radius:50%;background:var(--ppl-card);border:1px solid var(--ppl-line);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s ease}
+#ppl-app .ppl-share-btn:hover{border-color:rgba(255,255,255,0.3)}
+#ppl-app .ppl-share-btn svg{width:19px;height:19px;fill:var(--ppl-fg)}
+#ppl-app .ppl-linkbox{display:flex;align-items:center;justify-content:space-between;background:var(--ppl-card);border:1px solid var(--ppl-line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ppl-fg);margin-top:8px}
+#ppl-app .ppl-linkbox span{font-size:13.5px;font-weight:600}
+#ppl-app .ppl-linkbox svg{width:15px;height:15px;fill:var(--ppl-fg-dim);flex-shrink:0}
+#ppl-app .ppl-footer{padding:22px 26px 26px;text-align:center}
+#ppl-app .ppl-footer span{font-size:11px;color:var(--ppl-fg-dim);letter-spacing:.05em}
+#ppl-app canvas{display:none}
+@media(max-width:420px){#ppl-app h2.ppl-result-title{font-size:24px}#ppl-app .ppl-q{font-size:17px}}
+@media(prefers-reduced-motion:reduce){#ppl-app *{animation:none!important;transition:none!important}}
