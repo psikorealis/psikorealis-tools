@@ -1,0 +1,127 @@
+/* ===== PETA POLA RED FLAG — Psikorealis ===== */
+#rfl-app, #rfl-app *{box-sizing:border-box}
+#rfl-app{--rfl-bg:#0B0B0D;--rfl-fg:#EDEDED;--rfl-fg-dim:#9A9A9F;--rfl-c1:#8E0E3A;--rfl-c2:#C2185B;--rfl-c3:#FF2D7A;--rfl-line:rgba(255,255,255,0.08);--rfl-card:#131316;font-family:'Montserrat',sans-serif;background:var(--rfl-bg);color:var(--rfl-fg);border-radius:18px;overflow:hidden;max-width:560px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.45);position:relative;isolation:isolate}
+#rfl-app .rfl-grad{background:linear-gradient(120deg,var(--rfl-c1),var(--rfl-c2) 55%,var(--rfl-c3));}
+#rfl-app .rfl-screen{display:none;padding:32px 26px 28px;position:relative;z-index:1}
+#rfl-app .rfl-screen.rfl-active{display:block;animation:rflFade .5s ease}
+@keyframes rflFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- Ambient background ---- */
+#rfl-app::before,#rfl-app::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.22;z-index:0;pointer-events:none;animation:rflDrift 9s ease-in-out infinite alternate}
+#rfl-app::before{width:220px;height:220px;background:#FF2D7A;top:-70px;right:-60px}
+#rfl-app::after{width:180px;height:180px;background:#8E0E3A;bottom:10%;left:-70px;animation-delay:-4s}
+@keyframes rflDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(-14px,16px) scale(1.12)}}
+
+/* ---- Tools series badge ---- */
+#rfl-app .rfl-series{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px;opacity:0;animation:rflBlockIn .55s ease forwards}
+#rfl-app .rfl-series-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.18);transition:background .2s}
+#rfl-app .rfl-series-dot.rfl-series-active{background:var(--rfl-c3);width:16px;border-radius:99px}
+#rfl-app .rfl-series-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--rfl-fg-dim);font-weight:700}
+
+#rfl-app .rfl-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rfl-fg-dim);font-weight:600;margin-bottom:10px}
+#rfl-app h1.rfl-title{font-size:26px;line-height:1.25;font-weight:800;margin:0 0 12px}
+#rfl-app p.rfl-desc{font-size:14.5px;line-height:1.65;color:var(--rfl-fg-dim);margin:0 0 22px}
+#rfl-app .rfl-meta-row{display:flex;gap:18px;margin-bottom:24px;flex-wrap:wrap}
+#rfl-app .rfl-meta{font-size:12px;color:var(--rfl-fg-dim);display:flex;align-items:center;gap:7px}
+#rfl-app .rfl-meta svg{width:15px;height:15px;flex-shrink:0;opacity:.85}
+#rfl-app .rfl-meta b{color:var(--rfl-fg);font-weight:700}
+
+/* ---- Hero constellation visual ---- */
+#rfl-app .rfl-hero-visual{width:100%;max-width:230px;margin:2px auto 18px;display:block}
+#rfl-app .rfl-node{transform-origin:center;animation:rflNodePulse 2.6s ease-in-out infinite}
+#rfl-app .rfl-node-1{animation-delay:0s}
+#rfl-app .rfl-node-2{animation-delay:.4s}
+#rfl-app .rfl-node-3{animation-delay:.8s}
+#rfl-app .rfl-node-4{animation-delay:1.2s}
+@keyframes rflNodePulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.28);opacity:1}}
+#rfl-app .rfl-node-center{animation:rflCenterGlow 2.6s ease-in-out infinite}
+@keyframes rflCenterGlow{0%,100%{opacity:.9}50%{opacity:1}}
+#rfl-app .rfl-hero-ring{animation:rflRingSpin 12s linear infinite;transform-origin:120px 70px}
+@keyframes rflRingSpin{to{transform:rotate(360deg)}}
+#rfl-app .rfl-hero-line{stroke-dasharray:4 4;animation:rflLineFlow 3s linear infinite}
+@keyframes rflLineFlow{to{stroke-dashoffset:-16}}
+
+/* ---- Type preview chips ---- */
+#rfl-app .rfl-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+#rfl-app .rfl-chip{font-size:11.5px;font-weight:700;color:#e8c9d3;background:rgba(255,45,122,0.09);border:1px solid rgba(255,45,122,0.28);padding:7px 12px;border-radius:99px;opacity:0;animation:rflChipIn .5s ease forwards}
+#rfl-app .rfl-chip-1{animation-delay:.15s}
+#rfl-app .rfl-chip-2{animation-delay:.28s}
+#rfl-app .rfl-chip-3{animation-delay:.41s}
+#rfl-app .rfl-chip-4{animation-delay:.54s}
+@keyframes rflChipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- Entrance stagger ---- */
+#rfl-app .rfl-in{opacity:0;animation:rflBlockIn .55s ease forwards}
+#rfl-app .rfl-in-1{animation-delay:.05s}
+#rfl-app .rfl-in-2{animation-delay:.15s}
+#rfl-app .rfl-in-3{animation-delay:.25s}
+#rfl-app .rfl-in-4{animation-delay:.5s}
+#rfl-app .rfl-in-5{animation-delay:.62s}
+@keyframes rflBlockIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+button.rfl-btn{border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;color:#fff;padding:15px 22px;border-radius:12px;width:100%;letter-spacing:.01em;transition:transform .15s ease,box-shadow .15s ease}
+#rfl-app button.rfl-btn:active{transform:scale(.98)}
+#rfl-app button.rfl-btn.rfl-primary{background:linear-gradient(120deg,var(--rfl-c1),var(--rfl-c2) 55%,var(--rfl-c3));box-shadow:0 8px 24px rgba(194,24,91,0.35);position:relative;overflow:hidden}
+#rfl-app button.rfl-btn.rfl-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);animation:rflShine 2.8s ease-in-out infinite}
+@keyframes rflShine{0%{left:-60%}55%{left:120%}100%{left:120%}}
+#rfl-app button.rfl-btn.rfl-ghost{background:transparent;border:1px solid var(--rfl-line);color:var(--rfl-fg)}
+#rfl-app button.rfl-btn.rfl-ghost:hover{border-color:rgba(255,255,255,0.25)}
+#rfl-app .rfl-cred{font-size:11px;color:var(--rfl-fg-dim);text-align:center;margin-top:12px;line-height:1.5}
+
+#rfl-app .rfl-progress-wrap{margin-bottom:26px}
+#rfl-app .rfl-progress-track{height:5px;background:var(--rfl-line);border-radius:99px;overflow:hidden}
+#rfl-app .rfl-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--rfl-c1),var(--rfl-c3));transition:width .4s ease;border-radius:99px}
+#rfl-app .rfl-progress-label{font-size:11px;color:var(--rfl-fg-dim);margin-top:8px;display:flex;justify-content:space-between}
+#rfl-app .rfl-q{font-size:19px;line-height:1.5;font-weight:700;margin:0 0 26px;min-height:76px}
+#rfl-app .rfl-options{display:flex;flex-direction:column;gap:10px}
+#rfl-app .rfl-opt{text-align:left;background:var(--rfl-card);border:1px solid var(--rfl-line);color:var(--rfl-fg);padding:14px 16px;border-radius:12px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .15s ease,background .15s ease}
+#rfl-app .rfl-opt:hover{border-color:rgba(255,255,255,0.22);background:#17171b}
+#rfl-app .rfl-opt .rfl-opt-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--rfl-fg-dim);flex-shrink:0}
+#rfl-app .rfl-opt[data-val="4"] .rfl-opt-dot,#rfl-app .rfl-opt[data-val="3"] .rfl-opt-dot{background:var(--rfl-c3);border-color:var(--rfl-c3)}
+#rfl-app .rfl-back{background:none;border:none;color:var(--rfl-fg-dim);font-family:inherit;font-size:12.5px;cursor:pointer;margin-bottom:18px;padding:0;display:inline-flex;align-items:center;gap:5px}
+
+#rfl-app .rfl-loading{padding:80px 26px;text-align:center}
+#rfl-app .rfl-spinner{width:46px;height:46px;border-radius:50%;border:3px solid var(--rfl-line);border-top-color:var(--rfl-c3);margin:0 auto 22px;animation:rflSpin 0.9s linear infinite}
+@keyframes rflSpin{to{transform:rotate(360deg)}}
+#rfl-app .rfl-loading-text{font-size:14px;color:var(--rfl-fg-dim);min-height:20px}
+
+#rfl-app .rfl-chapter{padding-top:6px;padding-bottom:30px;border-bottom:1px solid var(--rfl-line)}
+#rfl-app .rfl-chapter:last-of-type{border-bottom:none}
+#rfl-app .rfl-result-badge{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:99px;background:rgba(255,45,122,0.12);color:#FF7CA8;margin-bottom:14px}
+#rfl-app h2.rfl-result-title{font-size:28px;line-height:1.2;font-weight:800;margin:0 0 14px}
+#rfl-app p.rfl-validation{font-size:15px;line-height:1.7;font-style:italic;color:#e8c9d3;border-left:3px solid var(--rfl-c3);padding-left:14px;margin:0}
+#rfl-app h3.rfl-chapter-h{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--rfl-fg-dim);font-weight:700;margin:0 0 18px}
+#rfl-app .rfl-bar-group{margin-bottom:16px}
+#rfl-app .rfl-bar-label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px}
+#rfl-app .rfl-bar-label span:last-child{color:var(--rfl-fg-dim);font-weight:700}
+#rfl-app .rfl-bar-track{height:8px;background:var(--rfl-line);border-radius:99px;overflow:hidden}
+#rfl-app .rfl-bar-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--rfl-c1),var(--rfl-c3));transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+#rfl-app .rfl-mechanism{font-size:15px;line-height:1.75;color:var(--rfl-fg)}
+#rfl-app .rfl-implications{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+#rfl-app .rfl-implications li{font-size:14px;line-height:1.6;color:var(--rfl-fg-dim);padding-left:20px;position:relative}
+#rfl-app .rfl-implications li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--rfl-c3)}
+#rfl-app .rfl-quote-card{border-radius:16px;padding:30px 24px;text-align:center;position:relative;overflow:hidden}
+#rfl-app .rfl-quote-card p{position:relative;font-size:19px;line-height:1.5;font-weight:800;margin:0;color:#fff}
+#rfl-app .rfl-stat-box{background:var(--rfl-card);border:1px solid var(--rfl-line);border-radius:14px;padding:18px}
+#rfl-app .rfl-stat-box p{font-size:13.5px;line-height:1.65;color:var(--rfl-fg-dim);margin:0}
+#rfl-app .rfl-stat-box b{color:var(--rfl-fg)}
+#rfl-app .rfl-reflect-box{background:var(--rfl-card);border:1px dashed rgba(255,255,255,0.18);border-radius:14px;padding:20px}
+#rfl-app .rfl-reflect-box p{font-size:15px;line-height:1.6;font-weight:600;margin:0;color:var(--rfl-fg)}
+#rfl-app .rfl-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#rfl-app .rfl-share-btn{width:42px;height:42px;border-radius:50%;background:var(--rfl-card);border:1px solid var(--rfl-line);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s ease}
+#rfl-app .rfl-share-btn:hover{border-color:rgba(255,255,255,0.3)}
+#rfl-app .rfl-share-btn svg{width:19px;height:19px;fill:var(--rfl-fg)}
+
+/* ---- Cross-link tools lainnya ---- */
+#rfl-app .rfl-cross-card{display:block;background:var(--rfl-card);border:1px solid var(--rfl-line);border-radius:14px;padding:16px 18px;text-decoration:none;margin-top:10px;transition:border-color .15s ease,transform .15s ease}
+#rfl-app .rfl-cross-card:hover{border-color:rgba(255,45,122,0.4);transform:translateY(-2px)}
+#rfl-app .rfl-cross-label{display:block;color:#FF7CA8;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+#rfl-app .rfl-cross-title{display:flex;align-items:center;justify-content:space-between;color:var(--rfl-fg);font-size:15px;font-weight:700}
+#rfl-app .rfl-cross-desc{display:block;color:var(--rfl-fg-dim);font-size:12.5px;margin-top:4px;line-height:1.4}
+#rfl-app .rfl-cross-title svg{width:15px;height:15px;flex-shrink:0}
+
+#rfl-app .rfl-footer{padding:22px 26px 26px;text-align:center}
+#rfl-app .rfl-footer span{font-size:11px;color:var(--rfl-fg-dim);letter-spacing:.05em}
+#rfl-app canvas{display:none}
+@media(max-width:420px){#rfl-app h2.rfl-result-title{font-size:24px}#rfl-app .rfl-q{font-size:17px}}
+@media(prefers-reduced-motion:reduce){#rfl-app *{animation:none!important;transition:none!important}}
