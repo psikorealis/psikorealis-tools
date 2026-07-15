@@ -1,0 +1,255 @@
+/* ==========================================================
+   PSIKOREALIS — Ritual Malam Anti-Overthinking
+   malam-style.css
+   ========================================================== */
+
+#mlm-app{
+  --mlm-bg:#08080B;
+  --mlm-card:#151519;
+  --mlm-card2:#1B1B21;
+  --mlm-line:rgba(255,255,255,0.08);
+  --mlm-fg:#EDEDED;
+  --mlm-fg-dim:#9A9AA3;
+  --mlm-c1:#8E0E3A;
+  --mlm-c2:#C2185B;
+  --mlm-c3:#FF2D7A;
+  --mlm-gold:#FFC978;
+  --mlm-grad:linear-gradient(135deg,var(--mlm-c1) 0%,var(--mlm-c2) 50%,var(--mlm-c3) 100%);
+  --mlm-radius:18px;
+  --mlm-radius-sm:12px;
+  font-family:'Montserrat',sans-serif;
+  background:var(--mlm-bg);
+  color:var(--mlm-fg);
+  border-radius:var(--mlm-radius);
+  padding:28px 20px 32px;
+  max-width:500px;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  isolation:isolate;
+}
+#mlm-app *{ box-sizing:border-box; }
+
+/* ---------- Star field + ambient glow ---------- */
+#mlm-app .mlm-stars{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#mlm-app .mlm-star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.5;animation:mlmTwinkle 3s ease-in-out infinite}
+@keyframes mlmTwinkle{0%,100%{opacity:.15}50%{opacity:.8}}
+#mlm-app::before,#mlm-app::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.16;z-index:0;pointer-events:none;animation:mlmDrift 10s ease-in-out infinite alternate}
+#mlm-app::before{width:220px;height:220px;background:#8E0E3A;top:-70px;left:-60px}
+#mlm-app::after{width:180px;height:180px;background:#C2185B;bottom:0;right:-60px;animation-delay:-5s}
+@keyframes mlmDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(14px,-12px) scale(1.1)}}
+
+#mlm-app .mlm-phase{display:none;position:relative;z-index:1;animation:mlmFade .5s ease}
+#mlm-app .mlm-phase.active{display:block}
+@keyframes mlmFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+#mlm-app h1{font-size:23px;font-weight:800;line-height:1.3;margin:0 0 12px;letter-spacing:-.2px}
+#mlm-app h2{font-size:18px;font-weight:700;margin:0 0 8px}
+#mlm-app p{font-size:14.5px;line-height:1.6;color:var(--mlm-fg-dim);margin:0 0 18px}
+#mlm-app .mlm-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:var(--mlm-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+
+/* ---------- Series badge ---------- */
+#mlm-app .mlm-series{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px;opacity:0;animation:mlmIn .55s ease forwards}
+#mlm-app .mlm-series-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.18)}
+#mlm-app .mlm-series-dot.mlm-series-active{background:var(--mlm-gold);width:16px;border-radius:99px}
+#mlm-app .mlm-series-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mlm-fg-dim);font-weight:700}
+
+/* ---------- Entrance stagger ---------- */
+#mlm-app .mlm-in{opacity:0;animation:mlmIn .55s ease forwards}
+#mlm-app .mlm-in-1{animation-delay:.05s}
+#mlm-app .mlm-in-2{animation-delay:.15s}
+#mlm-app .mlm-in-3{animation-delay:.25s}
+#mlm-app .mlm-in-4{animation-delay:.4s}
+#mlm-app .mlm-in-5{animation-delay:.52s}
+@keyframes mlmIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- Hero: moon ---------- */
+#mlm-app .mlm-hero-visual{width:100%;max-width:150px;margin:2px auto 18px;display:block}
+#mlm-app .mlm-moon-glow{animation:mlmMoonPulse 4s ease-in-out infinite}
+@keyframes mlmMoonPulse{0%,100%{opacity:.7}50%{opacity:1}}
+#mlm-app .mlm-orbit-dot{animation:mlmOrbit 6s linear infinite;transform-origin:75px 75px}
+@keyframes mlmOrbit{to{transform:rotate(360deg)}}
+
+/* ---------- Chip row ---------- */
+#mlm-app .mlm-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+#mlm-app .mlm-chip{font-size:11px;font-weight:700;color:#e8c9d3;background:rgba(255,45,122,0.09);border:1px solid rgba(255,45,122,0.28);padding:6px 11px;border-radius:99px;opacity:0;animation:mlmChipIn .5s ease forwards}
+#mlm-app .mlm-chip-1{animation-delay:.15s}
+#mlm-app .mlm-chip-2{animation-delay:.28s}
+#mlm-app .mlm-chip-3{animation-delay:.41s}
+#mlm-app .mlm-chip-4{animation-delay:.54s}
+@keyframes mlmChipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- Meta row ---------- */
+#mlm-app .mlm-meta-row{display:flex;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+#mlm-app .mlm-meta{font-size:12px;color:var(--mlm-fg-dim);display:flex;align-items:center;gap:7px}
+#mlm-app .mlm-meta svg{width:15px;height:15px;flex-shrink:0;opacity:.85}
+#mlm-app .mlm-meta b{color:var(--mlm-fg);font-weight:700}
+
+#mlm-app .mlm-cred{font-size:11px;color:var(--mlm-fg-dim);text-align:center;margin-top:12px;line-height:1.5}
+
+#mlm-app .mlm-streak-badge{background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius-sm);padding:12px 14px;font-size:13px;color:var(--mlm-fg-dim);margin-bottom:18px}
+#mlm-app .mlm-streak-badge b{color:var(--mlm-gold)}
+
+/* ---------- Buttons ---------- */
+#mlm-app .mlm-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px 20px;border:none;border-radius:var(--mlm-radius-sm);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,opacity .2s ease;text-decoration:none}
+#mlm-app .mlm-btn:active{transform:scale(.97)}
+#mlm-app .mlm-btn-primary{background:var(--mlm-grad);color:#fff;box-shadow:0 8px 24px rgba(255,45,122,0.28);position:relative;overflow:hidden}
+#mlm-app .mlm-btn-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:mlmShine 2.8s ease-in-out infinite}
+@keyframes mlmShine{0%{left:-60%}55%{left:120%}100%{left:120%}}
+#mlm-app .mlm-btn-primary:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+#mlm-app .mlm-btn-primary:disabled::after{display:none}
+#mlm-app .mlm-btn-secondary{background:var(--mlm-card);border:1px solid var(--mlm-line);color:var(--mlm-fg)}
+#mlm-app .mlm-btn-secondary:hover{border-color:var(--mlm-c3)}
+#mlm-app .mlm-btn-ig{background:linear-gradient(135deg,#8E0E3A,#C2185B,#FF2D7A,#FFB199);color:#fff}
+
+/* ---------- Progress ---------- */
+#mlm-app .mlm-progress-wrap{margin-bottom:22px}
+#mlm-app .mlm-progress-track{height:5px;background:var(--mlm-line);border-radius:99px;overflow:hidden}
+#mlm-app .mlm-progress-fill{height:100%;width:0%;background:var(--mlm-grad);transition:width .4s ease;border-radius:99px}
+#mlm-app .mlm-progress-label{font-size:11px;color:var(--mlm-fg-dim);margin-top:8px;display:flex;justify-content:space-between}
+
+/* ---------- Phase 1: brain dump ---------- */
+#mlm-app .mlm-add-row{display:flex;gap:8px;margin-bottom:16px}
+#mlm-app .mlm-add-input{flex:1;background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius-sm);padding:13px 14px;color:var(--mlm-fg);font-family:inherit;font-size:14px}
+#mlm-app .mlm-add-input:focus{outline:none;border-color:var(--mlm-c3)}
+#mlm-app .mlm-add-input::placeholder{color:#5A5A63}
+#mlm-app .mlm-add-btn{background:var(--mlm-grad);border:none;color:#fff;width:46px;border-radius:var(--mlm-radius-sm);font-size:20px;font-weight:700;cursor:pointer;flex-shrink:0}
+#mlm-app .mlm-thought-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;min-height:8px}
+#mlm-app .mlm-thought-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius-sm);padding:12px 14px;font-size:13.5px;animation:mlmChipIn .35s ease}
+#mlm-app .mlm-thought-item span{flex:1;line-height:1.4}
+#mlm-app .mlm-thought-remove{background:none;border:none;color:var(--mlm-fg-dim);cursor:pointer;font-size:16px;line-height:1;flex-shrink:0;padding:2px 4px}
+#mlm-app .mlm-thought-remove:hover{color:var(--mlm-c3)}
+#mlm-app .mlm-empty-hint{font-size:13px;color:#5A5A63;text-align:center;padding:14px 0}
+
+/* ---------- Phase 2: sort ---------- */
+#mlm-app .mlm-sort-card{background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius);padding:20px;margin-bottom:16px;text-align:center}
+#mlm-app .mlm-sort-text{font-size:16px;font-weight:700;line-height:1.5;margin-bottom:18px;min-height:60px;display:flex;align-items:center;justify-content:center}
+#mlm-app .mlm-sort-options{display:flex;flex-direction:column;gap:10px}
+#mlm-app .mlm-sort-btn{padding:14px 16px;border-radius:var(--mlm-radius-sm);border:1px solid var(--mlm-line);background:var(--mlm-card2);color:var(--mlm-fg);font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
+#mlm-app .mlm-sort-btn:hover{border-color:var(--mlm-c3)}
+#mlm-app .mlm-sort-btn.mlm-sort-besok{border-color:rgba(255,201,120,0.4)}
+#mlm-app .mlm-sort-btn.mlm-sort-lepas{border-color:rgba(255,45,122,0.4)}
+#mlm-app .mlm-sort-progress{font-size:12px;color:var(--mlm-fg-dim);margin-bottom:14px}
+
+/* ---------- Phase 3: breathing (guided, presisi per detik) ---------- */
+#mlm-app .mlm-breath-wrap{text-align:center}
+#mlm-app .mlm-breath-circle-outer{position:relative;display:flex;align-items:center;justify-content:center;height:240px;margin-bottom:14px}
+#mlm-app .mlm-breath-svg{position:absolute;width:220px;height:220px;transform:rotate(-90deg)}
+#mlm-app .mlm-breath-ring-bg{fill:none;stroke:var(--mlm-line);stroke-width:3}
+#mlm-app .mlm-breath-ring-progress{fill:none;stroke:var(--mlm-gold);stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset linear}
+#mlm-app .mlm-breath-ambient{position:absolute;border-radius:50%;border:1px solid rgba(255,45,122,0.18);animation:mlmAmbientPulse 4.5s ease-in-out infinite}
+#mlm-app .mlm-breath-ambient-1{width:170px;height:170px}
+#mlm-app .mlm-breath-ambient-2{width:200px;height:200px;animation-delay:-1.5s}
+@keyframes mlmAmbientPulse{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:.5;transform:scale(1.04)}}
+#mlm-app .mlm-breath-circle{position:relative;width:100px;height:100px;border-radius:50%;background:var(--mlm-grad);box-shadow:0 0 60px rgba(255,45,122,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;transform:scale(1);transition:transform 4s cubic-bezier(.45,0,.55,1)}
+#mlm-app .mlm-breath-circle-label{font-size:12.5px;font-weight:700;letter-spacing:.02em}
+#mlm-app .mlm-breath-circle-count{font-size:22px;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums}
+#mlm-app .mlm-breath-particles{position:absolute;width:220px;height:220px;pointer-events:none}
+#mlm-app .mlm-breath-particle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--mlm-gold);opacity:0;top:50%;left:50%}
+#mlm-app .mlm-breath-particle.mlm-particle-active{animation:mlmParticleFloat 2.2s ease-in-out infinite}
+@keyframes mlmParticleFloat{0%{opacity:0;transform:translate(0,0) scale(.5)}30%{opacity:.9}100%{opacity:0;transform:var(--pEnd) scale(1)}}
+#mlm-app .mlm-breath-progress{font-size:13px;color:var(--mlm-fg-dim);margin-bottom:16px}
+#mlm-app .mlm-breath-cycle-dots{display:flex;justify-content:center;gap:8px;margin-bottom:8px}
+#mlm-app .mlm-breath-dot{width:8px;height:8px;border-radius:50%;background:var(--mlm-line);transition:background .3s ease,transform .3s ease}
+#mlm-app .mlm-breath-dot.mlm-breath-dot-done{background:var(--mlm-gold);transform:scale(1.15)}
+#mlm-app .mlm-breath-hint{font-size:11.5px;color:#5A5A63;margin-bottom:20px;font-style:italic}
+
+/* ---------- Header icon accents ---------- */
+#mlm-app .mlm-h-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#mlm-app .mlm-h-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(142,14,58,0.5),rgba(255,45,122,0.25));border:1px solid rgba(255,45,122,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+#mlm-app .mlm-h-icon svg{width:17px;height:17px;stroke:#FF9FC0;fill:none;stroke-width:2}
+#mlm-app .mlm-h-row h2{margin:0}
+
+/* ---------- Ornamental dividers ---------- */
+#mlm-app .mlm-divider{display:flex;align-items:center;gap:10px;margin:22px 0}
+#mlm-app .mlm-divider::before,#mlm-app .mlm-divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--mlm-line),transparent)}
+#mlm-app .mlm-divider svg{width:13px;height:13px;stroke:#5A5A63;fill:none;stroke-width:1.6;flex-shrink:0;opacity:.8}
+
+/* ---------- Chapter cascading reveal ---------- */
+#mlm-app .mlm-chapter{padding-top:2px;padding-bottom:2px;opacity:0;animation:mlmChapterIn .6s ease forwards}
+#mlm-app .mlm-chapter:nth-of-type(1){animation-delay:.05s}
+#mlm-app .mlm-chapter:nth-of-type(2){animation-delay:.15s}
+#mlm-app .mlm-chapter:nth-of-type(3){animation-delay:.25s}
+#mlm-app .mlm-chapter:nth-of-type(4){animation-delay:.35s}
+#mlm-app .mlm-chapter:nth-of-type(5){animation-delay:.45s}
+#mlm-app .mlm-chapter:nth-of-type(6){animation-delay:.55s}
+#mlm-app .mlm-chapter:nth-of-type(7){animation-delay:.65s}
+#mlm-app .mlm-chapter:nth-of-type(8){animation-delay:.75s}
+#mlm-app .mlm-chapter:nth-of-type(9){animation-delay:.85s}
+#mlm-app .mlm-chapter:nth-of-type(10){animation-delay:.95s}
+@keyframes mlmChapterIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- Result hero banner ---------- */
+#mlm-app .mlm-result-banner{position:relative;text-align:center;padding:22px 10px 26px;margin-bottom:6px;border-radius:16px;overflow:hidden;background:linear-gradient(180deg, rgba(142,14,58,0.18), transparent)}
+#mlm-app .mlm-result-banner svg{width:52px;height:52px;margin-bottom:10px}
+#mlm-app .mlm-result-banner-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+
+/* ---------- Extra ambient: shooting star & constellation ---------- */
+#mlm-app .mlm-shooting-star{position:absolute;width:60px;height:1.5px;background:linear-gradient(90deg,#fff,transparent);opacity:0;animation:mlmShoot 7s linear infinite}
+@keyframes mlmShoot{0%{opacity:0;transform:translate(0,0) rotate(-25deg)}2%{opacity:.9}8%{opacity:0;transform:translate(140px,60px) rotate(-25deg)}100%{opacity:0}}
+
+/* ---------- Section icon badges for result chapters ---------- */
+#mlm-app .mlm-badge-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+#mlm-app .mlm-badge-row svg{width:15px;height:15px;stroke:var(--mlm-gold);fill:none;stroke-width:2}
+
+/* ---------- Card decorative corner ---------- */
+#mlm-app .mlm-list-card{position:relative}
+#mlm-app .mlm-list-card::after{content:"";position:absolute;top:10px;right:12px;width:5px;height:5px;border-radius:50%;background:rgba(255,201,120,0.4)}
+
+
+
+/* ---------- Phase 4: result ---------- */
+#mlm-app .mlm-chapter-h{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mlm-fg-dim);font-weight:700;margin:0 0 14px}
+
+#mlm-app .mlm-stat-row{display:flex;gap:14px;margin-bottom:8px}
+#mlm-app .mlm-stat-box{flex:1;background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius-sm);padding:16px;text-align:center}
+#mlm-app .mlm-stat-box b{display:block;font-size:26px;font-weight:800;color:#fff;margin-bottom:2px}
+#mlm-app .mlm-stat-box span{font-size:10.5px;color:var(--mlm-fg-dim);text-transform:uppercase;letter-spacing:.04em}
+
+#mlm-app .mlm-mechanism{font-size:14.5px;line-height:1.75;color:var(--mlm-fg)}
+
+#mlm-app .mlm-list-card{background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius-sm);padding:16px}
+#mlm-app .mlm-list-card.mlm-list-besok{border-left:4px solid var(--mlm-gold)}
+#mlm-app .mlm-list-card.mlm-list-lepas{border-left:4px solid var(--mlm-c3);opacity:.75}
+#mlm-app .mlm-list-card h3{font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px;color:var(--mlm-fg-dim)}
+#mlm-app .mlm-list-card ul{list-style:none;margin:0;padding:0}
+#mlm-app .mlm-list-card li{font-size:13.5px;line-height:1.5;color:var(--mlm-fg);padding:8px 0;border-top:1px solid var(--mlm-line)}
+#mlm-app .mlm-list-card li:first-child{border-top:none}
+#mlm-app .mlm-list-besok li::before{content:"\2610  ";color:var(--mlm-gold)}
+#mlm-app .mlm-list-lepas li::before{content:"\2192  ";color:var(--mlm-c3)}
+#mlm-app .mlm-empty-note{font-size:13px;color:var(--mlm-fg-dim);font-style:italic}
+
+#mlm-app .mlm-quote-card{border-radius:16px;padding:26px 22px;text-align:center;background:var(--mlm-grad)}
+#mlm-app .mlm-quote-card p{font-size:17px;line-height:1.5;font-weight:800;margin:0;color:#fff}
+
+#mlm-app .mlm-disclaimer{font-size:12px;color:var(--mlm-fg-dim);background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:var(--mlm-radius-sm);padding:14px;line-height:1.55}
+
+#mlm-app .mlm-session-counter{text-align:center;font-size:12.5px;color:var(--mlm-fg-dim)}
+#mlm-app .mlm-session-counter b{color:var(--mlm-gold)}
+
+#mlm-app .mlm-actions-row{display:flex;gap:10px}
+#mlm-app .mlm-actions-row .mlm-btn{flex:1}
+
+#mlm-app .mlm-followbox{background:linear-gradient(135deg, rgba(142,14,58,0.28), rgba(255,45,122,0.12));border:1px solid rgba(255,45,122,0.35);border-radius:var(--mlm-radius);padding:18px;text-align:center}
+#mlm-app .mlm-followbox p{color:var(--mlm-fg);margin-bottom:14px;font-size:14px}
+
+#mlm-app .mlm-cross-card{display:block;background:var(--mlm-card);border:1px solid var(--mlm-line);border-radius:14px;padding:16px 18px;text-decoration:none;margin-bottom:10px;transition:border-color .15s ease,transform .15s ease}
+#mlm-app .mlm-cross-card:last-child{margin-bottom:0}
+#mlm-app .mlm-cross-card:hover{border-color:rgba(255,45,122,0.4);transform:translateY(-2px)}
+#mlm-app .mlm-cross-label{display:block;color:#FF7CA8;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+#mlm-app .mlm-cross-title{display:flex;align-items:center;justify-content:space-between;color:var(--mlm-fg);font-size:15px;font-weight:700}
+#mlm-app .mlm-cross-desc{display:block;color:var(--mlm-fg-dim);font-size:12.5px;margin-top:4px;line-height:1.4}
+#mlm-app .mlm-cross-title svg{width:15px;height:15px;flex-shrink:0;stroke:var(--mlm-fg-dim)}
+
+#mlm-app .mlm-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#mlm-app .mlm-share-btn{width:42px;height:42px;border-radius:50%;background:var(--mlm-card);border:1px solid var(--mlm-line);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s ease}
+#mlm-app .mlm-share-btn:hover{border-color:rgba(255,255,255,0.3)}
+#mlm-app .mlm-share-btn svg{width:19px;height:19px;fill:var(--mlm-fg)}
+
+#mlm-app .mlm-footer{text-align:center;margin-top:22px}
+#mlm-app .mlm-footer span{font-size:11px;color:var(--mlm-fg-dim);letter-spacing:.05em}
+#mlm-app canvas{display:none}
+
+@media(max-width:360px){#mlm-app{padding:22px 14px 26px}#mlm-app h1{font-size:19px}}
+@media(prefers-reduced-motion:reduce){#mlm-app *{animation:none!important;transition:none!important}}
