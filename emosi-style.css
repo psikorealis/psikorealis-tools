@@ -1,0 +1,166 @@
+/* ==========================================================
+   PSIKOREALIS — Peta Emosi Harian
+   emosi-style.css
+   ========================================================== */
+#emo-app{
+  --emo-bg:#0B0B0D; --emo-card:#151519; --emo-card2:#1B1B21; --emo-line:rgba(255,255,255,0.08);
+  --emo-fg:#EDEDED; --emo-fg-dim:#9A9AA3;
+  --emo-c1:#8E0E3A; --emo-c2:#C2185B; --emo-c3:#FF2D7A;
+  --emo-grad:linear-gradient(135deg,var(--emo-c1) 0%,var(--emo-c2) 50%,var(--emo-c3) 100%);
+  --emo-radius:18px; --emo-radius-sm:12px;
+  font-family:'Montserrat',sans-serif; background:var(--emo-bg); color:var(--emo-fg);
+  border-radius:var(--emo-radius); padding:28px 20px 32px; max-width:520px; margin:0 auto;
+  position:relative; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5); isolation:isolate;
+}
+#emo-app *{box-sizing:border-box}
+#emo-app::before,#emo-app::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.18;z-index:0;pointer-events:none;animation:emoDrift 10s ease-in-out infinite alternate}
+#emo-app::before{width:220px;height:220px;background:#8E0E3A;top:-70px;right:-60px}
+#emo-app::after{width:180px;height:180px;background:#C2185B;bottom:0;left:-70px;animation-delay:-5s}
+@keyframes emoDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(-12px,14px) scale(1.1)}}
+
+#emo-app .emo-screen{display:none;position:relative;z-index:1;animation:emoFade .5s ease}
+#emo-app .emo-screen.active{display:block}
+@keyframes emoFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+#emo-app h1{font-size:23px;font-weight:800;line-height:1.3;margin:0 0 12px;letter-spacing:-.2px}
+#emo-app h2{font-size:18px;font-weight:700;margin:0 0 8px}
+#emo-app p{font-size:14.5px;line-height:1.6;color:var(--emo-fg-dim);margin:0 0 18px}
+#emo-app .emo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:var(--emo-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+
+.emo-series{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px;opacity:0;animation:emoIn .55s ease forwards}
+.emo-series-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.18)}
+.emo-series-dot.active{background:var(--emo-c3);width:16px;border-radius:99px}
+.emo-series-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--emo-fg-dim);font-weight:700}
+
+.emo-in{opacity:0;animation:emoIn .55s ease forwards}
+.emo-in-1{animation-delay:.05s}.emo-in-2{animation-delay:.15s}.emo-in-3{animation-delay:.25s}.emo-in-4{animation-delay:.4s}.emo-in-5{animation-delay:.52s}
+@keyframes emoIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.emo-hero-visual{width:100%;max-width:200px;margin:2px auto 18px;display:block}
+.emo-hero-seg{transition:opacity .3s ease;animation:emoSegPulse 3.5s ease-in-out infinite}
+@keyframes emoSegPulse{0%,100%{opacity:.75}50%{opacity:1}}
+
+.emo-value-row{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.emo-value-item{display:flex;gap:10px;align-items:flex-start;opacity:0;animation:emoIn .5s ease forwards}
+.emo-value-item svg{width:17px;height:17px;stroke:#FF9FC0;fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+.emo-value-item span{font-size:13px;line-height:1.5;color:var(--emo-fg-dim)}
+.emo-value-item b{color:var(--emo-fg)}
+
+#emo-app .emo-meta-row{display:flex;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+#emo-app .emo-meta{font-size:12px;color:var(--emo-fg-dim);display:flex;align-items:center;gap:7px}
+#emo-app .emo-meta svg{width:15px;height:15px;flex-shrink:0;opacity:.85}
+#emo-app .emo-meta b{color:var(--emo-fg);font-weight:700}
+
+.emo-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px 20px;border:none;border-radius:var(--emo-radius-sm);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;text-decoration:none}
+#emo-app .emo-btn:active{transform:scale(.97)}
+#emo-app .emo-btn-primary{background:var(--emo-grad);color:#fff;box-shadow:0 8px 24px rgba(255,45,122,.28);position:relative;overflow:hidden}
+#emo-app .emo-btn-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);animation:emoShine 2.8s ease-in-out infinite}
+@keyframes emoShine{0%{left:-60%}55%{left:120%}100%{left:120%}}
+#emo-app .emo-btn-secondary{background:var(--emo-card);border:1px solid var(--emo-line);color:var(--emo-fg)}
+#emo-app .emo-btn-secondary:hover{border-color:var(--emo-c3)}
+#emo-app .emo-btn-ig{background:linear-gradient(135deg,#8E0E3A,#C2185B,#FF2D7A,#FFB199);color:#fff}
+.emo-cred{font-size:11px;color:var(--emo-fg-dim);text-align:center;margin-top:12px;line-height:1.5}
+
+.emo-returning{background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:16px;margin-bottom:18px}
+.emo-returning-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.emo-returning-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.emo-returning-head b{font-size:14px}
+.emo-returning-actions{display:flex;gap:8px;margin-top:12px}
+.emo-returning-actions .emo-btn{font-size:12.5px;padding:11px 14px}
+
+/* ---- Pilih emosi inti: grid 8 kartu warna ---- */
+.emo-core-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.emo-core-card{border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;border:1px solid transparent;transition:transform .15s ease,border-color .15s ease;position:relative;overflow:hidden}
+.emo-core-card:active{transform:scale(.96)}
+.emo-core-card-name{font-size:14px;font-weight:800;color:#fff;position:relative}
+.emo-core-card-desc{font-size:10.5px;color:rgba(255,255,255,0.75);margin-top:3px;line-height:1.3;position:relative}
+
+/* ---- Pilih nuansa spesifik ---- */
+.emo-sub-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:12px 14px;border-radius:12px;background:var(--emo-card)}
+.emo-sub-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.emo-sub-list{display:flex;flex-direction:column;gap:9px;margin-bottom:8px}
+.emo-sub-opt{text-align:left;background:var(--emo-card);border:1px solid var(--emo-line);border-radius:12px;padding:14px 16px;font-family:inherit;font-weight:700;font-size:14.5px;color:var(--emo-fg);cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.emo-sub-opt:hover{background:var(--emo-card2)}
+.emo-back{background:none;border:none;color:var(--emo-fg-dim);font-family:inherit;font-size:12.5px;cursor:pointer;margin-bottom:16px;padding:0;display:inline-flex;align-items:center;gap:5px}
+
+.emo-layer-tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#FF7CA8;background:rgba(255,45,122,0.1);border:1px solid rgba(255,45,122,0.25);padding:5px 10px;border-radius:99px;margin-bottom:12px}
+.emo-trace-box{background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:14px 16px;font-size:14px;font-weight:600;color:var(--emo-fg)}
+
+/* ---- Catatan opsional ---- */
+#emo-app textarea{width:100%;min-height:80px;background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:12px 14px;color:var(--emo-fg);font-family:inherit;font-size:14px;line-height:1.5;resize:vertical;margin-bottom:18px}
+#emo-app textarea:focus{outline:none;border-color:var(--emo-c3)}
+#emo-app textarea::placeholder{color:#5A5A63}
+#emo-app label{display:block;font-size:13.5px;font-weight:700;margin-bottom:8px}
+.emo-ctx-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.emo-ctx-chip{font-size:12.5px;font-weight:700;color:var(--emo-fg-dim);background:var(--emo-card);border:1px solid var(--emo-line);padding:9px 14px;border-radius:99px;cursor:pointer;transition:border-color .15s ease,color .15s ease}
+.emo-ctx-chip.sel{border-color:var(--emo-c3);color:#fff;background:rgba(255,45,122,0.12)}
+
+/* ---- Loading ---- */
+.emo-loading{padding:70px 10px;text-align:center}
+.emo-spinner{width:44px;height:44px;border-radius:50%;border:3px solid var(--emo-line);border-top-color:var(--emo-c3);margin:0 auto 20px;animation:emoSpin .9s linear infinite}
+@keyframes emoSpin{to{transform:rotate(360deg)}}
+.emo-loading-text{font-size:14px;color:var(--emo-fg-dim)}
+
+/* ---- Hasil ---- */
+.emo-chapter{padding-top:2px;padding-bottom:2px;opacity:0;animation:emoChapterIn .6s ease forwards}
+.emo-chapter:nth-of-type(1){animation-delay:.05s}.emo-chapter:nth-of-type(2){animation-delay:.15s}.emo-chapter:nth-of-type(3){animation-delay:.25s}.emo-chapter:nth-of-type(4){animation-delay:.35s}.emo-chapter:nth-of-type(5){animation-delay:.45s}.emo-chapter:nth-of-type(6){animation-delay:.55s}.emo-chapter:nth-of-type(7){animation-delay:.65s}.emo-chapter:nth-of-type(8){animation-delay:.75s}
+@keyframes emoChapterIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.emo-divider{display:flex;align-items:center;gap:10px;margin:20px 0}
+.emo-divider::before,.emo-divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--emo-line),transparent)}
+.emo-divider svg{width:12px;height:12px;stroke:#5A5A63;fill:none;stroke-width:1.6;flex-shrink:0;opacity:.8}
+
+.emo-result-badge{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:99px;margin-bottom:14px;color:#0B0B0D}
+.emo-result-title{font-size:27px;font-weight:800;line-height:1.2;margin:0 0 4px}
+.emo-result-sub{font-size:13.5px;color:var(--emo-fg-dim);margin:0 0 16px}
+.emo-mechanism{font-size:14.5px;line-height:1.75;color:var(--emo-fg);margin:0}
+
+.emo-quote-card{border-radius:16px;padding:26px 22px;text-align:center}
+.emo-quote-card p{font-size:17px;line-height:1.5;font-weight:800;margin:0;color:#fff}
+
+.emo-chapter-h{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--emo-fg-dim);font-weight:700;margin:0 0 14px}
+.emo-badge-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.emo-badge-row svg{width:15px;height:15px;stroke:var(--emo-c3);fill:none;stroke-width:2}
+
+/* ---- Kalender Peta Emosi ---- */
+.emo-cal-wrap{background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:16px}
+.emo-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:10px}
+.emo-cal-cell{aspect-ratio:1;border-radius:5px;background:var(--emo-card2);border:1px solid var(--emo-line)}
+.emo-cal-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.emo-cal-legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--emo-fg-dim)}
+.emo-cal-legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+.emo-stat-row{display:flex;gap:12px}
+.emo-stat-box{flex:1;background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:15px 10px;text-align:center}
+.emo-stat-box b{display:block;font-size:23px;font-weight:800;color:#fff;margin-bottom:2px}
+.emo-stat-box span{font-size:10px;color:var(--emo-fg-dim);text-transform:uppercase;letter-spacing:.03em}
+.emo-insight-text{font-size:13.5px;line-height:1.6;color:var(--emo-fg-dim);background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:14px;margin-top:12px}
+.emo-insight-text b{color:var(--emo-fg)}
+
+.emo-reflect-box{background:var(--emo-card);border:1px dashed rgba(255,255,255,0.18);border-radius:var(--emo-radius-sm);padding:18px}
+.emo-reflect-box p{font-size:14.5px;line-height:1.6;font-weight:600;margin:0;color:var(--emo-fg)}
+
+.emo-disclaimer{font-size:12px;color:var(--emo-fg-dim);background:var(--emo-card);border:1px solid var(--emo-line);border-radius:var(--emo-radius-sm);padding:14px;line-height:1.55}
+
+.emo-actions-row{display:flex;gap:10px}
+.emo-actions-row .emo-btn{flex:1}
+.emo-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.emo-share-btn{width:42px;height:42px;border-radius:50%;background:var(--emo-card);border:1px solid var(--emo-line);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s ease}
+.emo-share-btn:hover{border-color:rgba(255,255,255,.3)}
+.emo-share-btn svg{width:19px;height:19px;fill:var(--emo-fg)}
+
+.emo-followbox{background:linear-gradient(135deg, rgba(142,14,58,0.28), rgba(255,45,122,0.12));border:1px solid rgba(255,45,122,0.35);border-radius:var(--emo-radius);padding:18px;text-align:center}
+.emo-followbox p{color:var(--emo-fg);margin-bottom:14px;font-size:14px}
+
+.emo-cross-card{display:block;background:var(--emo-card);border:1px solid var(--emo-line);border-radius:14px;padding:16px 18px;text-decoration:none;transition:border-color .15s ease,transform .15s ease}
+.emo-cross-card:hover{border-color:rgba(255,45,122,0.4);transform:translateY(-2px)}
+.emo-cross-label{display:block;color:#FF7CA8;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.emo-cross-title{display:flex;align-items:center;justify-content:space-between;color:var(--emo-fg);font-size:15px;font-weight:700}
+.emo-cross-desc{display:block;color:var(--emo-fg-dim);font-size:12.5px;margin-top:4px;line-height:1.4}
+.emo-cross-title svg{width:15px;height:15px;flex-shrink:0;stroke:var(--emo-fg-dim)}
+
+.emo-footer{text-align:center;margin-top:6px}
+.emo-footer span{font-size:11px;color:var(--emo-fg-dim);letter-spacing:.05em}
+#emo-app canvas{display:none}
+
+@media(max-width:360px){#emo-app{padding:22px 14px 26px}#emo-app h1{font-size:19px}.emo-result-title{font-size:23px}}
+@media(prefers-reduced-motion:reduce){#emo-app *{animation:none!important;transition:none!important}}
