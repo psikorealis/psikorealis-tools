@@ -1,0 +1,157 @@
+/* ===== PSIKOREALIS - PETA DIRI - STYLE ===== */
+/* Tool sintesis lintas-tools, bukan kuis baru. Identitas visual wajib: dark bg, gradient signature, Montserrat */
+
+#peta-app * { box-sizing: border-box; }
+#peta-app {
+  font-family: 'Montserrat', -apple-system, sans-serif;
+  background: #0B0B0D;
+  color: #EDEDED;
+  border-radius: 20px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ambient glow */
+#peta-app .pd-glow-a, #peta-app .pd-glow-b {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .35;
+  pointer-events: none;
+  z-index: 0;
+}
+#peta-app .pd-glow-a { width: 260px; height: 260px; background: #8E0E3A; top: -80px; left: -60px; }
+#peta-app .pd-glow-b { width: 220px; height: 220px; background: #FF2D7A; bottom: -60px; right: -50px; }
+
+#peta-app .pd-inner { position: relative; z-index: 1; padding: 28px 20px 32px; }
+
+/* badge */
+#peta-app .pd-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: #FF7DA8; background: rgba(255,45,122,.1);
+  border: 1px solid rgba(255,45,122,.25);
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;
+  opacity: 0; transform: translateY(6px);
+  animation: pdFade .6s ease forwards;
+}
+
+/* hero svg */
+#peta-app .pd-hero { width: 100%; max-width: 220px; margin: 0 auto 20px; display: block; opacity: 0; animation: pdFade .7s ease .1s forwards; }
+
+#peta-app h1.pd-title {
+  font-size: 24px; font-weight: 700; margin: 0 0 10px; letter-spacing: -.01em;
+  opacity: 0; transform: translateY(8px); animation: pdFade .6s ease .15s forwards;
+}
+#peta-app p.pd-sub {
+  font-size: 14.5px; color: #B7B7BD; margin: 0 0 22px;
+  opacity: 0; transform: translateY(8px); animation: pdFade .6s ease .22s forwards;
+}
+
+/* progress bar */
+#peta-app .pd-progress-wrap { margin-bottom: 24px; opacity: 0; animation: pdFade .6s ease .28s forwards; }
+#peta-app .pd-progress-label { display: flex; justify-content: space-between; font-size: 13px; color: #B7B7BD; margin-bottom: 8px; }
+#peta-app .pd-progress-track { height: 8px; border-radius: 999px; background: #1A1A1F; overflow: hidden; }
+#peta-app .pd-progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg,#8E0E3A,#C2185B,#FF2D7A); transition: width 1s cubic-bezier(.22,.9,.3,1); }
+
+/* chip row */
+#peta-app .pd-chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+#peta-app .pd-chip {
+  font-size: 12.5px; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid #26262C; color: #B7B7BD; background: #131316;
+}
+#peta-app .pd-chip.pd-chip-done { color: #FF7DA8; border-color: rgba(255,45,122,.35); background: rgba(255,45,122,.08); }
+
+/* section title */
+#peta-app .pd-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: #7A7A82; margin: 0 0 12px; }
+
+/* tool result cards */
+#peta-app .pd-card-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+#peta-app .pd-card {
+  background: #131316; border: 1px solid #232328; border-radius: 14px; padding: 14px 16px;
+  opacity: 0; transform: translateY(10px);
+  animation: pdFade .55s ease forwards;
+}
+#peta-app .pd-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+/* safety net: SEMUA svg di dalam #peta-app wajib dibatasi ukurannya, mencegah svg tanpa width/height melebar sendiri */
+#peta-app svg { display: block; width: 100%; height: 100%; }
+
+/* safety net: SEMUA svg icon di dalam #peta-app default 1em, mencegah svg tanpa width/height melebar sendiri (hero dikecualikan) */
+#peta-app svg { display: block; width: 1em; height: 1em; }
+#peta-app svg.pd-hero { width: 100%; height: auto; }
+
+#peta-app .pd-card-icon { width: 18px; height: 18px; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #FF2D7A; }
+#peta-app .pd-card-tool { font-size: 11.5px; color: #7A7A82; text-transform: uppercase; letter-spacing: .05em; }
+#peta-app .pd-card-type { font-size: 16px; font-weight: 700; color: #EDEDED; }
+#peta-app .pd-card-ctx { font-size: 13px; color: #9C9CA3; margin-top: 3px; }
+
+/* missing tool cta card */
+#peta-app .pd-card-missing {
+  background: transparent; border: 1px dashed #333338; border-radius: 14px; padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  text-decoration: none; color: #EDEDED;
+  opacity: 0; transform: translateY(10px); animation: pdFade .55s ease forwards;
+}
+#peta-app .pd-card-missing .pd-card-type { font-size: 14.5px; font-weight: 600; }
+#peta-app .pd-card-missing .pd-arrow { color: #FF2D7A; font-size: 18px; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* pattern insight block, bagian paling penting */
+#peta-app .pd-pattern-block {
+  background: linear-gradient(160deg, rgba(142,14,58,.22), rgba(255,45,122,.06));
+  border: 1px solid rgba(255,45,122,.3);
+  border-radius: 18px; padding: 22px 18px; margin-bottom: 26px;
+  opacity: 0; animation: pdFade .7s ease .1s forwards;
+}
+#peta-app .pd-pattern-eyebrow { font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: #FF9DBF; margin-bottom: 8px; }
+#peta-app .pd-pattern-name { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+#peta-app .pd-pattern-desc { font-size: 14.5px; color: #E4E4E8; margin-bottom: 14px; }
+#peta-app .pd-pattern-evidence { font-size: 13px; color: #C9C9D0; display: flex; flex-direction: column; gap: 6px; }
+#peta-app .pd-pattern-evidence div { display: flex; gap: 8px; align-items: flex-start; }
+#peta-app .pd-pattern-evidence svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: #FF2D7A; }
+
+/* emotion signal note */
+#peta-app .pd-emotion-note {
+  font-size: 13px; color: #9C9CA3; background: #131316; border: 1px solid #232328;
+  border-radius: 12px; padding: 12px 14px; margin-bottom: 26px; display: flex; gap: 10px; align-items: flex-start;
+}
+#peta-app .pd-emotion-note svg { width: 16px; height: 16px; flex-shrink: 0; color: #FF2D7A; margin-top: 2px; }
+
+/* buttons */
+#peta-app .pd-btn-row { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+#peta-app .pd-btn {
+  position: relative; overflow: hidden;
+  flex: 1; min-width: 140px; text-align: center;
+  padding: 13px 14px; border-radius: 12px; font-size: 13.5px; font-weight: 600;
+  cursor: pointer; border: none; font-family: inherit;
+}
+#peta-app .pd-btn-primary { background: linear-gradient(90deg,#8E0E3A,#C2185B,#FF2D7A); color: #fff; }
+#peta-app .pd-btn-ghost { background: transparent; border: 1px solid #333338; color: #EDEDED; }
+#peta-app .pd-btn-primary::after {
+  content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: skewX(-20deg); animation: pdShine 3.2s ease-in-out infinite;
+}
+#peta-app input[type=file] { display: none; }
+
+/* cta ke tools */
+#peta-app .pd-empty-cta {
+  text-align: center; padding: 30px 10px;
+}
+#peta-app .pd-empty-cta a.pd-btn { display: inline-block; }
+
+/* disclaimer */
+#peta-app .pd-disclaimer {
+  font-size: 11.5px; color: #6E6E76; border-top: 1px solid #1E1E22; padding-top: 16px; margin-top: 4px;
+}
+
+@keyframes pdFade { to { opacity: 1; transform: translateY(0); } }
+@keyframes pdShine { 0% { left: -60%; } 45% { left: 130%; } 100% { left: 130%; } }
+
+@media (max-width: 380px) {
+  #peta-app .pd-inner { padding: 22px 14px 26px; }
+  #peta-app h1.pd-title { font-size: 21px; }
+}
